@@ -21,7 +21,7 @@ Este proyecto es un sistema para gestionar una lista de tareas utilizando Larave
 ## Instalación
 
 1. Clonar el repositorio
-git clone https://github.com/CHUYMALBORO616/task_app.git
+git clone https://github.com/PAFGAresFS/task_app.git
 cd task_app
 
 2. Instalar dependencias PHP
