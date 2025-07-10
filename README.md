@@ -1,66 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Manager Laravel API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este proyecto es un sistema para gestionar una lista de tareas utilizando Laravel, jQuery y AJAX, sin recargar la página.
 
-## About Laravel
+## Características
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- CRUD completo para tareas.
+- Gestión de personas y asignación de tareas.
+- Relación pivote entre tareas y personas.
+- Validación, manejo de errores y diseño frontend.
+- APIs RESTful consumidas con AJAX.
+- Código limpio y comentado.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requisitos
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.0
+- Composer
+- MySQL o SQL Server
+- Node.js y npm (opcional para assets)
 
-## Learning Laravel
+## Instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clonar el repositorio
+git clone https://github.com/CHUYMALBORO616/task_app.git
+cd task_app
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Instalar dependencias PHP
+composer install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Copiar archivo de entorno
+cp .env.example .env
 
-## Laravel Sponsors
+4. Configurar base de datos en .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3307
+DB_DATABASE=task_app
+DB_USERNAME=root
+DB_PASSWORD=
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+5. Generar clave de aplicación
+php artisan key:generate
 
-### Premium Partners
+6. Ejecutar migraciones y seeders
+php artisan migrate --seed
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+7. Iniciar servidor local
+php artisan serve
 
-## Contributing
+## Uso
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Accede a http://127.0.0.1:8000 en tu navegador.
+- La aplicación permite crear, editar, eliminar tareas y gestionar personas.
+- Las operaciones se hacen sin recargar la página mediante AJAX.
 
-## Code of Conduct
+## API Endpoints Principales
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- GET /api/tasks — Listar tareas
+- POST /api/tasks — Crear tarea
+- PUT /api/tasks/{id} — Actualizar tarea
+- DELETE /api/tasks/{id} — Eliminar tarea
+- POST /api/tasks/{id}/assign — Asignar persona a tarea
+- POST /api/tasks/{id}/unassign — Quitar persona de tarea
+- GET /api/persons — Listar personas
+- POST /api/persons — Crear persona
+- PUT /api/persons/{id} — Actualizar persona
+- DELETE /api/persons/{id} — Eliminar persona
 
-## Security Vulnerabilities
+## Tests con Postman
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Se incluye una colección Postman para probar todos los endpoints del API.
 
-## License
+## Notas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Asegúrate de tener el servidor corriendo antes de probar la API.
+- El proyecto usa base64 para almacenar avatares temporalmente.
+- Validaciones y manejo de errores implementados en backend y frontend.
+
+---
+
+Gracias por usar este proyecto!
+
+Y ofrezco una disculpa por tardar mas de la hora establecida, sin internet y al poco tiempo sin luz hasta esta hora, me dejo fuera de tiempo, espero no repercuta en el proceso de contratacion y en definitiva no volvera a pasar.
+
+- PAFG -
